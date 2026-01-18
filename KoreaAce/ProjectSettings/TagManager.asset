@@ -4,6 +4,15 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - DrinkAble
+  - Eatable
+  - OilBarrel
+  - LampControl
+  - Mineable
+  - Planter
+  - Generator
+  - SpotLight
+  - AI
   - CinemachineTarget
   - Door
   layers:
@@ -13,13 +22,13 @@ TagManager:
   - 
   - Water
   - UI
-  - Door
-  - Key
-  - Box
-  - Note
   - 
   - 
-  - 
+  - Lamps
+  - Support
+  - Holding
+  - Debug
+  - Generator
   - 
   - 
   - 
