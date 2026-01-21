@@ -9,10 +9,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Ray ray = new Ray(transform.position + new Vector3(0, 3, 0), cam.forward);
+        OpenDoor();
+    }
+
+    public void OpenDoor()
+    {
+        Ray ray = new Ray(transform.position + new Vector3(0, 1.7f, 0), cam.forward);
         RaycastHit hit;
 
-        if(Physics.Raycast(ray, out hit, 7f, 1 << 6)) //layermask 가 6일때 (Door일때)
+        if (Physics.Raycast(ray, out hit, 7f, 1 << 6)) //layermask 가 6일때 (Door일때)
         {
             InteractText.text = "열기 / 닫기 (E)";
             if (Input.GetKeyDown(KeyCode.E))
@@ -52,6 +57,6 @@ public class PlayerController : MonoBehaviour
             InteractText.text = "";
         }
 
-        Debug.DrawRay(transform.position + new Vector3(0, 3, 0), cam.forward * 7f, Color.blue, 0.3f);
+        Debug.DrawRay(transform.position + new Vector3(0, 1.7f, 0), cam.forward * 7f, Color.blue, 0.3f);
     }
 }
