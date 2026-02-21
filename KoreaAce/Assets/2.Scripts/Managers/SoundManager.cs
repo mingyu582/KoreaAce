@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(Instance);
-            SceneManager.sceneLoaded += OnSceneLoaded;
+            BGMPlay(BGMList[0]);
         }
         else
         {
@@ -25,32 +25,36 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    public void FootStepPlay(bool isStep)
     {
-        for (int i = 0; i < BGMList.Length; i++)
+        if (isStep)
         {
-            if (arg0.name == BGMList[i].name)
-            {
-                BGMPlay(BGMList[i]);
-            }
+            if (!SFXSource.isPlaying)
+                SFXSource.Play();
         }
-    }
-
-    public void SFXPlay(int num)
-    {
-        GameObject go = new GameObject("SFX Sound");
-        AudioSource audioSource = go.AddComponent<AudioSource>();
-        audioSource.clip = SFXList[num];
-        audioSource.Play();
-
-        Destroy(go, SFXList[num].length);
+        else
+        {
+            if (SFXSource.isPlaying)
+                SFXSource.Stop();
+        }
     }
 
     public void BGMPlay(AudioClip clip)
     {
         BGMSource.clip = clip;
         BGMSource.loop = true;
-        BGMSource.volume = 0.1f;
+        BGMSource.volume = .5f;
         BGMSource.Play();
+    }
+
+    public void SFXPlay(AudioClip clip)
+    {
+        GameObject go = new GameObject("SFX");
+        go.AddComponent<AudioSource>();
+        go.GetComponent<AudioSource>().clip = clip;
+        go.GetComponent<AudioSource>().loop = false;
+        go.GetComponent<AudioSource>().volume = 1f;
+        BGMSource.PlayOneShot(clip);
+        Destroy(go, clip.length);
     }
 }

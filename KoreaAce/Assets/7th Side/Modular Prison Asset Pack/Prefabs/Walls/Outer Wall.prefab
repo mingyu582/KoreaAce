@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &263660018646280214
 Transform:
   m_ObjectHideFlags: 0
@@ -23,6 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3154100036729299364}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,18 +32,22 @@ Transform:
   - {fileID: 1703190037924934224}
   - {fileID: 3899794756562194989}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2083304017679171569
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 263660018646280214}
     m_Modifications:
     - target: {fileID: 73714744334107, guid: 99b3b96557731624d8501cdad13a15dc, type: 3}
       propertyPath: m_Name
       value: Outer Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 73714744334107, guid: 99b3b96557731624d8501cdad13a15dc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 813906505682570657, guid: 99b3b96557731624d8501cdad13a15dc,
         type: 3}
@@ -99,7 +104,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6462531521893469816, guid: 99b3b96557731624d8501cdad13a15dc, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99b3b96557731624d8501cdad13a15dc, type: 3}
 --- !u!4 &1703190037924934224 stripped
 Transform:
@@ -112,12 +121,18 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 263660018646280214}
     m_Modifications:
     - target: {fileID: 1639264405032696229, guid: 9da6f691888b85540ae49f589a0afca9,
         type: 3}
       propertyPath: m_Name
       value: Inner Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639264405032696229, guid: 9da6f691888b85540ae49f589a0afca9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2158357706603897631, guid: 9da6f691888b85540ae49f589a0afca9,
         type: 3}
@@ -174,7 +189,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5587487895510638342, guid: 9da6f691888b85540ae49f589a0afca9, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9da6f691888b85540ae49f589a0afca9, type: 3}
 --- !u!4 &3899794756562194989 stripped
 Transform:

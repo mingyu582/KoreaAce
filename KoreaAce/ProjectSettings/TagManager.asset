@@ -4,31 +4,38 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - DrinkAble
-  - Eatable
-  - OilBarrel
-  - LampControl
-  - Mineable
-  - Planter
-  - Generator
-  - SpotLight
-  - AI
   - CinemachineTarget
   - Door
+  - Bed
+  - Crowbar
+  - SecretKey
+  - ironDoor
+  - MasterKey
+  - UnderGroundKey
+  - MasterLock
+  - HandlePoint
+  - Handle
+  - Screw
+  - HideObj
+  - UnderGroundLock
+  - Screwdriver
+  - Hammer
+  - Wood
+  - SecretLock
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Door
+  - Hanging
+  - Item
+  - Note
+  - UseItemObj
   - 
-  - Lamps
-  - Support
-  - Holding
-  - Debug
-  - Generator
+  - 
   - 
   - 
   - 

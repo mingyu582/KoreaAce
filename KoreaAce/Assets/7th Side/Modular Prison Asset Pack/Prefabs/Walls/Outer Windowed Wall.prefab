@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4659039328861072681
 Transform:
   m_ObjectHideFlags: 0
@@ -23,6 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5416926663342337230}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,19 +32,24 @@ Transform:
   - {fileID: 1930708355260038106}
   - {fileID: 9172268906676163413}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6987568206668652596
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4659039328861072681}
     m_Modifications:
     - target: {fileID: 1511367891440052699, guid: 0b4e01b6b3d60db4d9c1a47ddc99f748,
         type: 3}
       propertyPath: m_Name
       value: Outer Windowed Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511367891440052699, guid: 0b4e01b6b3d60db4d9c1a47ddc99f748,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2284070181133579105, guid: 0b4e01b6b3d60db4d9c1a47ddc99f748,
         type: 3}
@@ -100,7 +106,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3850325822265335243, guid: 0b4e01b6b3d60db4d9c1a47ddc99f748, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b4e01b6b3d60db4d9c1a47ddc99f748, type: 3}
 --- !u!4 &9172268906676163413 stripped
 Transform:
@@ -113,6 +123,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4659039328861072681}
     m_Modifications:
     - target: {fileID: 7260971010890281471, guid: 7fe259185b091624eb0c5e75d72051fa,
@@ -175,7 +186,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inner Windowed Wall
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8038914368164227909, guid: 7fe259185b091624eb0c5e75d72051fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8642886354872586398, guid: 7fe259185b091624eb0c5e75d72051fa, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fe259185b091624eb0c5e75d72051fa, type: 3}
 --- !u!4 &1930708355260038106 stripped
 Transform:

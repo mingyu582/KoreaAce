@@ -11,9 +11,8 @@ public class Doors : MonoBehaviour
         isOpen = false;
     }
 
-    public void DoorOpen_Close()
+    public void DoorOpen()
     {
-        isOpen = !isOpen;
-        doorAnimator.SetBool("isOpen", isOpen);
+        doorAnimator.SetBool("isOpen", true);
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4859933381415507842
 Transform:
   m_ObjectHideFlags: 0
@@ -51,6 +51,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509965734395855998, guid: 44239f033dc918a469bf86cc1398f55a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2999080855279836868, guid: 44239f033dc918a469bf86cc1398f55a,
         type: 3}
@@ -116,39 +121,8 @@ PrefabInstance:
     - {fileID: 1582094131512753626, guid: 44239f033dc918a469bf86cc1398f55a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2509965734395855998, guid: 44239f033dc918a469bf86cc1398f55a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 840718729587348798}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44239f033dc918a469bf86cc1398f55a, type: 3}
---- !u!1 &2501282351445834340 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2509965734395855998, guid: 44239f033dc918a469bf86cc1398f55a,
-    type: 3}
-  m_PrefabInstance: {fileID: 27979833521782298}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &840718729587348798
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2501282351445834340}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5, y: 0, z: 2.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &3025723677104775390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2999080855279836868, guid: 44239f033dc918a469bf86cc1398f55a,
@@ -167,6 +141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Small Floor Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 7072605246013663871, guid: fbbe09d33dc479540b9c609b6619909e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7596763687961309381, guid: fbbe09d33dc479540b9c609b6619909e,
         type: 3}
@@ -223,7 +202,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 531404923396131754, guid: fbbe09d33dc479540b9c609b6619909e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -246,6 +226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Small Floor Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 7072605246013663871, guid: fbbe09d33dc479540b9c609b6619909e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7596763687961309381, guid: fbbe09d33dc479540b9c609b6619909e,
         type: 3}
@@ -302,7 +287,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 531404923396131754, guid: fbbe09d33dc479540b9c609b6619909e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

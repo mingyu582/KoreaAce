@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class GameSceneManager : MonoBehaviour
 {
     public static GameSceneManager Instance;
+    public Monster monsterScript;
 
     void Awake()
     {

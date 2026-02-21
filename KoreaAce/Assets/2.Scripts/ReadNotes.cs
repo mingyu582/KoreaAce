@@ -9,7 +9,6 @@ public class ReadNotes : MonoBehaviour
     public GameObject player;
     public GameObject noteUI;
     public GameObject hud;
-    public GameObject inv;
 
 
 
@@ -18,7 +17,6 @@ public class ReadNotes : MonoBehaviour
     {
         noteUI.SetActive(false);
         hud.SetActive(true);
-        inv.SetActive(false);
     }
 
     public void ReadNote()
@@ -34,7 +32,6 @@ public class ReadNotes : MonoBehaviour
     {
         noteUI.SetActive(false);
         hud.SetActive(true);
-        inv.SetActive(true);
         player.GetComponent<FirstPersonController>().enabled = true;
 
     }
