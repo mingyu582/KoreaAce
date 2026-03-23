@@ -7,6 +7,5 @@ public class DropItem : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         SoundManager.Instance.SFXPlay(clip);
-        GameManager.Instance.SetDest();
     }
 }

@@ -22,6 +22,8 @@ TagManager:
   - Hammer
   - Wood
   - SecretLock
+  - Player2
+  - Snake
   layers:
   - Default
   - TransparentFX

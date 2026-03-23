@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967263
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &488029753876088278
 Transform:
   m_ObjectHideFlags: 0

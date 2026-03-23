@@ -29,7 +29,11 @@ public class Monster : MonoBehaviour
     public bool canSeePlayer;
 
     //Drop
-    public bool isDrop = false;    
+    public bool isDrop = false;
+
+    //snake
+    public Transform[] waypoints;
+    int current = 0;
 
 
     private void Awake()
@@ -41,12 +45,14 @@ public class Monster : MonoBehaviour
 
     private void Start()
     {
-        animator.SetBool("isWalk", true);
-    }
+        if (gameObject.tag == "Snake")
+        {
 
-    private void Update()
-    {
-        
+        }
+        else
+        {
+            animator.SetBool("isWalk", true);
+        }
     }
 
     private void OnEnable()
@@ -261,9 +267,6 @@ public class Monster : MonoBehaviour
         if (target == null)
             return;
 
-        if (isDrop)
-            return;
-
         if (player.isHiding)
             return;
 
@@ -299,5 +302,18 @@ public class Monster : MonoBehaviour
 
         // 다 통과 → 시야에 보임
         canSeePlayer = true;
+    }
+
+    void MovePath()
+    {
+        Transform target = waypoints[current];
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            target.position,
+            1f * Time.deltaTime
+        );
+
+        if (Vector3.Distance(transform.position, target.position) < 0.5f)
+            current = (current + 1) % waypoints.Length;
     }
 }

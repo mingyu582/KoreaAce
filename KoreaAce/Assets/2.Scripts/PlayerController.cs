@@ -60,8 +60,8 @@ public class PlayerController : MonoBehaviour
     {
         Ray ray = new Ray(transform.position + new Vector3(0, 1.7f, 0), cam.forward);
         RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, 7f, 1 << 6)) //layermask 가 6일때 (Door일때)
+            
+        if (Physics.Raycast(ray, out hit, 2f, 1 << 6)) //layermask 가 6일때 (Door일때)
         {
             InteractText.text = "열기";
             InteractBtn.SetActive(true);
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
                 UsedInteract();
             }
         }
-        else if (Physics.Raycast(ray, out hit, 7f, 1 << 8)) //layermask 가 8일때 (item일때)
+        else if (Physics.Raycast(ray, out hit, 2f, 1 << 8)) //layermask 가 8일때 (item일때)
         {
             string itemName = "item";
             switch (hit.collider.gameObject.tag)
@@ -181,18 +181,25 @@ public class PlayerController : MonoBehaviour
                 UsedInteract();
             }
         }
-        else if (Physics.Raycast(ray, out hit, 7f, 1 << 9)) //layermask 가 9일때 (note 일때)
+        else if (Physics.Raycast(ray, out hit, 2f, 1 << 9)) //layermask 가 9일때 (note 일때)
         {
             InteractText.text = "노트 보기";
             InteractBtn.SetActive(true);
 
             if (isInteractPass || Input.GetKeyDown(KeyCode.E))
             {
-                hit.collider.GetComponent<ReadNotes>().ReadNote();
+                if (moveController.enabled)  //메모가 안켰다면
+                {
+                    hit.collider.GetComponent<ReadNotes>().ReadNote();
+                }
+                else
+                {
+                    hit.collider.GetComponent<ReadNotes>().ExitButton();
+                }
                 UsedInteract();
             }
         }
-        else if (Physics.Raycast(ray, out hit, 7f, 1 << 10)) //layermask 가 10일때 (UseItemObj일때)
+        else if (Physics.Raycast(ray, out hit, 2f, 1 << 10)) //layermask 가 10일때 (UseItemObj일때)
         {
             switch (hit.collider.gameObject.tag)
             {

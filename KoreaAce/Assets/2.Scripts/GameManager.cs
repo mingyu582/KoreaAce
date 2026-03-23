@@ -87,14 +87,6 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void SetDest()
-    {
-        if (isClearUnderLock == true)
-        {
-            monsterScript.ChangeState(MonsterState.Pursuit);
-            monsterScript.isDrop = true;
-        }
-    }
 
 
     public void OffSound()

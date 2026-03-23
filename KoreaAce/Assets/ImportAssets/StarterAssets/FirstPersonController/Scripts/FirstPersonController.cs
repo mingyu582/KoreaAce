@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -25,6 +26,16 @@ namespace StarterAssets
 		public float JumpTimeout = 0.1f;
 		public float FallTimeout = 0.15f;
 
+        [Header("Player Grounded")]
+        [Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
+        public bool Grounded = true;
+        [Tooltip("Useful for rough ground")]
+        private float GroundedOffset = -0.14f;
+        [Tooltip("The radius of the grounded check. Should match the radius of the CharacterController")]
+        private float GroundedRadius = 0.39f;
+        [Tooltip("What layers the character uses as ground")]
+        public LayerMask GroundLayers;
+        
 		[Header("Cinemachine")]
 		public GameObject CinemachineCameraTarget;
 		public float TopClamp = 90.0f;
@@ -52,8 +63,7 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
-
-		private const float _threshold = 0.01f;
+        private const float _threshold = 0.01f;
 
 		private bool IsCurrentDeviceMouse
 		{
@@ -94,7 +104,7 @@ namespace StarterAssets
 		private void Update()
 		{
 			JumpAndGravity();
-			/*GroundedCheck();*/
+			GroundedCheck();
 			if (isMove)
             {
                 Move();
@@ -106,12 +116,12 @@ namespace StarterAssets
 			CameraRotation();
 		}
 
-		/*private void GroundedCheck()
+		private void GroundedCheck()
 		{
 			// set sphere position, with offset
 			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
-		}*/
+		}
 
 		private void CameraRotation()
 		{
@@ -120,7 +130,7 @@ namespace StarterAssets
 			{
 				//Don't multiply mouse input by Time.deltaTime
 				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
-				
+
 				_cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier;
 				_rotationVelocity = _input.look.x * RotationSpeed * deltaTimeMultiplier;
 
@@ -132,9 +142,65 @@ namespace StarterAssets
 
 				// rotate the player left and right
 				transform.Rotate(Vector3.up * _rotationVelocity);
+
+
 			}
 		}
+		/*private void CameraRotation()
+		{
+			Vector2 lookInput = Vector2.zero;
+			bool isMobile = Application.isMobilePlatform;
 
+			if (isMobile && Touchscreen.current != null)
+			{
+				foreach (var touch in Touchscreen.current.touches)
+				{
+					if (touch.press.isPressed)
+					{
+						int fingerId = touch.touchId.ReadValue();
+
+						// 🔥 UI 위 터치 무시
+						if (EventSystem.current.IsPointerOverGameObject(fingerId))
+							continue;
+
+						Vector2 pos = touch.position.ReadValue();
+
+						// 오른쪽 화면만 시점 회전
+						if (pos.x > Screen.width / 2)
+						{
+							lookInput = touch.delta.ReadValue();
+							break; // 오른쪽 터치 하나만 적용
+						}
+					}
+				}
+			}
+			else if (!isMobile && Mouse.current != null &&
+					 Mouse.current.leftButton.isPressed)
+			{
+				lookInput = Mouse.current.delta.ReadValue();
+			}
+
+			// 실제 회전 적용
+			if (lookInput.sqrMagnitude >= _threshold)
+			{
+				float deltaTimeMultiplier = isMobile ? Time.deltaTime : 1.0f;
+
+				// 🔥 X축 좌/우 감도는 3배, Y축 위/아래 감도는 3 * 0.7 = 2.1배
+				float horizontalSensitivity = RotationSpeed * 6f;
+				float verticalSensitivity = RotationSpeed * 3f * 0.7f;
+
+				// Y축 반전 적용 (위/아래 감도만 0.7 적용)
+				_cinemachineTargetPitch -= lookInput.y * verticalSensitivity * deltaTimeMultiplier;
+				_rotationVelocity = lookInput.x * horizontalSensitivity * deltaTimeMultiplier;
+
+				_cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
+
+				CinemachineCameraTarget.transform.localRotation =
+					Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
+
+				transform.Rotate(Vector3.up * _rotationVelocity);
+			}
+		}*/
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
@@ -191,7 +257,7 @@ namespace StarterAssets
 
 		private void JumpAndGravity()
 		{
-			/*if (Grounded)
+			if (Grounded && gameObject.tag == "Player2")
 			{
 				// reset the fall timeout timer
 				_fallTimeoutDelta = FallTimeout;
@@ -203,7 +269,7 @@ namespace StarterAssets
 				}
 
 				// Jump
-				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+				if ((Input.GetKeyDown(KeyCode.Space)) && _jumpTimeoutDelta <= 0.0f)
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
@@ -228,7 +294,7 @@ namespace StarterAssets
 
 				// if we are not grounded, do not jump
 				_input.jump = false;
-			}*/
+			}
 
 			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
 			if (_verticalVelocity < _terminalVelocity)
