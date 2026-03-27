@@ -7,6 +7,7 @@ public class SnakeController : MonoBehaviour
 {
     public int snakeNum;
     public float moveSpeed;
+    public float chaseSpeed;
     public NavMeshAgent navMeshAgent;
     public Transform target;
     public float steerSpeed = 100f;
@@ -20,20 +21,34 @@ public class SnakeController : MonoBehaviour
 
     private MonsterState monsterState = MonsterState.None;
 
+    //move
+
+    public Transform pointA;
+    public Transform pointB;
+
+    private Transform moveTarget;
+
+    public Transform player;
+    public bool isChase = false;    
+
     private void Start()
     {
-        navMeshAgent.updateRotation = true;
+        //navMeshAgent.updateRotation = true;
         GrowSnake();
         GrowSnake();
         GrowSnake();
         GrowSnake();
         GrowSnake();
         GrowSnake();
+
+        //move
+
+        moveTarget = pointB;
     }
 
     private void Update()
     {
-        transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        //transform.position += transform.forward * moveSpeed * Time.deltaTime;
         transform.Rotate(Vector3.up * transform.rotation.z * steerSpeed * Time.deltaTime);  ///주변을 돌아다니고, 플레이어가 나타나면 플레이어 바라보는 것 까지 하기
 
         PositionHistory.Insert(0, transform.position);
@@ -47,6 +62,26 @@ public class SnakeController : MonoBehaviour
             body.transform.LookAt(point);
             index++;
         }
+
+        float playerDistance = Vector3.Distance(player.position, transform.position);
+        if (playerDistance < 10f)
+        {
+            isChase = true;
+        }
+        else
+        {
+            isChase = false;
+        }
+        //move
+        // 이동
+        if (isChase)
+        {
+            Chase();
+        }
+        else
+        {
+            Wander();
+        }
     }
 
     private void GrowSnake()
@@ -54,6 +89,32 @@ public class SnakeController : MonoBehaviour
         GameObject body = Instantiate(BodyPrefab);
         BodyParts.Add(body);
     }
+
+    public void Wander()
+    {
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            moveTarget.position,
+            moveSpeed * Time.deltaTime
+        );
+
+        // 도착하면 방향 전환
+        if (Vector3.Distance(transform.position, moveTarget.position) < 0.2f)
+        {
+            moveTarget = moveTarget == pointA ? pointB : pointA;
+        }
+    }
+
+    public void Chase()
+    {
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            player.position,
+            chaseSpeed * Time.deltaTime
+        );
+    }
+
+    
 
     /*private void OnEnable()
     {
