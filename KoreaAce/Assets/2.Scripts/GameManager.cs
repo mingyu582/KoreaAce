@@ -1,6 +1,7 @@
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
 
     public void ClearInvoke()
     {
+        LockManager.isLock = false;
         clearPanel.SetActive(true);
         cleaerAnim.SetBool("isClear", true);
         moveController.enabled = false;
@@ -85,12 +87,18 @@ public class GameManager : MonoBehaviour
         OpeningCanvasObj.SetActive(false);
     }
 
-
-
-
-
     public void OffSound()
     {
         asource.enabled = false;
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }
