@@ -24,6 +24,8 @@ TagManager:
   - SecretLock
   - Player2
   - Snake
+  - F1
+  - Floor
   layers:
   - Default
   - TransparentFX

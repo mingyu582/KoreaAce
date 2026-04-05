@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class SnakeController : MonoBehaviour
 {
+    public string FloorTagSnake;
     public int snakeNum;
     public float moveSpeed;
     public float chaseSpeed;
@@ -21,42 +22,36 @@ public class SnakeController : MonoBehaviour
 
     private MonsterState monsterState = MonsterState.None;
 
-    //move
+    //  포인트 (A, B, C 순서대로 넣기)
+    public Transform[] points;
+    public Transform moveTarget;
 
-    public Transform pointA;
-    public Transform pointB;
-
-    private Transform moveTarget;
+    private int currentIndex = 0;
 
     public Transform player;
-    public bool isChase = false;    
+    public bool isChase = false;
 
     private void Start()
     {
-        //navMeshAgent.updateRotation = true;
-        GrowSnake();
-        GrowSnake();
-        GrowSnake();
-        GrowSnake();
-        GrowSnake();
-        GrowSnake();
+        // 몸통 생성
+        for (int i = 0; i < 6; i++)
+            GrowSnake();
 
-        //move
-
-        moveTarget = pointB;
+        //  시작 위치 랜덤
+        currentIndex = 1;
+        moveTarget = points[currentIndex];
     }
 
     private void Update()
     {
-        //transform.position += transform.forward * moveSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.up * transform.rotation.z * steerSpeed * Time.deltaTime);  ///주변을 돌아다니고, 플레이어가 나타나면 플레이어 바라보는 것 까지 하기
+        transform.Rotate(Vector3.up * transform.rotation.z * steerSpeed * Time.deltaTime);
 
         PositionHistory.Insert(0, transform.position);
 
         int index = 0;
         foreach (var body in BodyParts)
         {
-            Vector3 point = PositionHistory[Mathf.Min(index * Gap,PositionHistory.Count-1)];
+            Vector3 point = PositionHistory[Mathf.Min(index * Gap, PositionHistory.Count - 1)];
             Vector3 moveDirection = point - body.transform.position;
             body.transform.position += moveDirection * bodySpeed * Time.deltaTime;
             body.transform.LookAt(point);
@@ -64,24 +59,12 @@ public class SnakeController : MonoBehaviour
         }
 
         float playerDistance = Vector3.Distance(player.position, transform.position);
-        if (playerDistance < 10f)
-        {
-            isChase = true;
-        }
-        else
-        {
-            isChase = false;
-        }
-        //move
-        // 이동
+        isChase = playerDistance < 10f && player.gameObject.GetComponent<FloorCheck>().floorTag == FloorTagSnake;
+
         if (isChase)
-        {
             Chase();
-        }
         else
-        {
             Wander();
-        }
     }
 
     private void GrowSnake()
@@ -90,6 +73,7 @@ public class SnakeController : MonoBehaviour
         BodyParts.Add(body);
     }
 
+    //  핵심: 한 칸씩 랜덤 이동
     public void Wander()
     {
         transform.position = Vector3.MoveTowards(
@@ -98,10 +82,21 @@ public class SnakeController : MonoBehaviour
             moveSpeed * Time.deltaTime
         );
 
-        // 도착하면 방향 전환
         if (Vector3.Distance(transform.position, moveTarget.position) < 0.2f)
         {
-            moveTarget = moveTarget == pointA ? pointB : pointA;
+            List<int> possible = new List<int>();
+
+            // 왼쪽 이동 가능
+            if (currentIndex - 1 >= 0)
+                possible.Add(currentIndex - 1);
+
+            // 오른쪽 이동 가능
+            if (currentIndex + 1 < points.Length)
+                possible.Add(currentIndex + 1);
+
+            // 랜덤 선택
+            currentIndex = possible[Random.Range(0, possible.Count)];
+            moveTarget = points[currentIndex];
         }
     }
 
@@ -114,7 +109,7 @@ public class SnakeController : MonoBehaviour
         );
     }
 
-    
+
 
     /*private void OnEnable()
     {
