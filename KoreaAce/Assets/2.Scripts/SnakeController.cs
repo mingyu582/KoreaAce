@@ -9,92 +9,112 @@ public class SnakeController : MonoBehaviour
     public int snakeNum;
     public float moveSpeed;
     public float chaseSpeed;
-    public NavMeshAgent navMeshAgent;
-    public Transform target;
-    public float steerSpeed = 100f;
+
     public int Gap = 10;
-    public float bodySpeed = 5f;
 
     public GameObject BodyPrefab;
 
     private List<GameObject> BodyParts = new List<GameObject>();
     private List<Vector3> PositionHistory = new List<Vector3>();
 
-    private MonsterState monsterState = MonsterState.None;
-
-    //  포인트 (A, B, C 순서대로 넣기)
     public Transform[] points;
     public Transform moveTarget;
 
-    private int currentIndex = 0;
+    public int currentIndex = 0;
 
     public Transform player;
     public bool isChase = false;
 
+    public PlayerControllerV2 playerControllerV2;
+
     private void Start()
     {
         // 몸통 생성
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 8; i++)
             GrowSnake();
 
-        //  시작 위치 랜덤
         currentIndex = 1;
         moveTarget = points[currentIndex];
+
+        PositionHistory.Add(transform.position);
     }
 
     private void Update()
     {
-        transform.Rotate(Vector3.up * transform.rotation.z * steerSpeed * Time.deltaTime);
+        if (playerControllerV2.isDeadPlayer)
+        {
+            return;
+        }
+        // 몸통 이동 (계단 그대로 따라가게)
+        // move forward
+        transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
+        // steer
+        float steerDirection = Input.GetAxis("Horizontal");
+        transform.Rotate(Vector3.up * steerDirection * 3f * Time.deltaTime);
+
+        // store position history
         PositionHistory.Insert(0, transform.position);
 
+        // move body parts
         int index = 0;
         foreach (var body in BodyParts)
         {
             Vector3 point = PositionHistory[Mathf.Min(index * Gap, PositionHistory.Count - 1)];
             Vector3 moveDirection = point - body.transform.position;
-            body.transform.position += moveDirection * bodySpeed * Time.deltaTime;
+            body.transform.position += moveDirection * moveSpeed * Time.deltaTime;
             body.transform.LookAt(point);
             index++;
         }
 
+        // 추적 여부 판단
         float playerDistance = Vector3.Distance(player.position, transform.position);
-        isChase = playerDistance < 10f && player.gameObject.GetComponent<FloorCheck>().floorTag == FloorTagSnake;
+        isChase = playerDistance < 10f &&
+                  player.GetComponent<FloorCheck>().floorTag == FloorTagSnake;
 
         if (isChase)
             Chase();
         else
             Wander();
+
     }
 
     private void GrowSnake()
     {
         GameObject body = Instantiate(BodyPrefab);
+        body.transform.position = transform.position;
         BodyParts.Add(body);
     }
 
-    //  핵심: 한 칸씩 랜덤 이동
     public void Wander()
     {
+        Vector3 dir = (moveTarget.position - transform.position).normalized;
+
+        // 이동
         transform.position = Vector3.MoveTowards(
             transform.position,
             moveTarget.position,
             moveSpeed * Time.deltaTime
         );
 
+        // 이동 방향으로 회전
+        if (dir != Vector3.zero)
+        {
+            Quaternion rot = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, 10f * Time.deltaTime);
+        }
+
+        // 도착 시 다음 포인트 선택
         if (Vector3.Distance(transform.position, moveTarget.position) < 0.2f)
         {
             List<int> possible = new List<int>();
 
-            // 왼쪽 이동 가능
             if (currentIndex - 1 >= 0)
                 possible.Add(currentIndex - 1);
 
-            // 오른쪽 이동 가능
             if (currentIndex + 1 < points.Length)
                 possible.Add(currentIndex + 1);
 
-            // 랜덤 선택
             currentIndex = possible[Random.Range(0, possible.Count)];
             moveTarget = points[currentIndex];
         }
@@ -102,112 +122,32 @@ public class SnakeController : MonoBehaviour
 
     public void Chase()
     {
+        Vector3 dir = (player.position - transform.position).normalized;
+
+        // 이동
         transform.position = Vector3.MoveTowards(
             transform.position,
             player.position,
             chaseSpeed * Time.deltaTime
         );
-    }
 
-
-
-    /*private void OnEnable()
-    {
-        StartCoroutine(Wander());
-    }
-
-    private IEnumerator Wander()
-    {
-        navMeshAgent.isStopped = false;
-
-
-
-        float currentTime = 0;
-        float maxTime = 10;
-
-        navMeshAgent.speed = moveSpeed;
-
-        navMeshAgent.SetDestination(CalculateWanderPosition());
-
-        Vector3 to = new Vector3(navMeshAgent.destination.x, 0, navMeshAgent.destination.z);
-        Vector3 from = new Vector3(transform.position.x, 0, transform.position.z);
-        transform.rotation = Quaternion.LookRotation(to - from);
-
-        while (true)
+        // 플레이어 방향으로 회전
+        if (dir != Vector3.zero)
         {
-            currentTime += Time.deltaTime;
-            to = new Vector3(navMeshAgent.destination.x, 0, navMeshAgent.destination.z);
-            from = new Vector3(transform.position.x, 0, transform.position.z);
-            if ((to - from).sqrMagnitude < 0.01f || currentTime >= maxTime)
+            Quaternion rot = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, 10f * Time.deltaTime);
+        }
+
+        //이동중에 이동풀렷을떄 어디갈지 계산 (풀렸을시 가장 가까운 포인트로 이동)
+        float tableDis =0;
+        for (int i = 0; i < points.Length; i++)
+        {
+            if (tableDis > Vector3.Distance(transform.position, points[i].position))
             {
-                ChangeState(MonsterState.Idle);
+                tableDis = Vector3.Distance(transform.position, points[i].position);
+                currentIndex = i;
             }
-
-            CalculateDistanceToTargetAndSelectState();
-
-            yield return null;
         }
+
     }
-
-    private Vector3 CalculateWanderPosition()
-    {
-        float wanderRadius = 10;
-        int wanderJitter = 0;
-        int wanderJitterMin = 0;
-        int WanderJitterMax = 360;
-
-        Vector3 rangePosition = Vector3.zero;
-        Vector3 rangeScale = Vector3.one * 100.0f;
-
-        wanderJitter = Random.Range(wanderJitterMin, WanderJitterMax);
-        Vector3 targetPosition = transform.position + SetAngle(wanderRadius, wanderJitter);
-
-        targetPosition.x = Mathf.Clamp(targetPosition.x, rangePosition.x - rangeScale.x * 0.5f, rangePosition.x + rangeScale.x * 0.5f);
-        targetPosition.y = 0.0f;
-        targetPosition.z = Mathf.Clamp(targetPosition.z, rangePosition.z - rangeScale.z * 0.5f, rangePosition.z + rangeScale.z * 0.5f);
-
-        return targetPosition;
-    }
-
-    private Vector3 SetAngle(float radius, int angle)
-    {
-        Vector3 position = Vector3.zero;
-
-        position.x = Mathf.Cos(angle) * radius;
-        position.z = Mathf.Sin(angle) * radius;
-
-        return position;
-    }
-
-    private void CalculateDistanceToTargetAndSelectState()
-    {
-        if (target == null)
-            return;
-
-        *//*if (player.isHiding)
-            return;*//*
-
-        float distance = Vector3.Distance(target.position, transform.position);
-
-        *//*if (distance <= targetRecognitonRange && GameManager.Instance.isClearUnderLock)
-        {
-            ChangeState(MonsterState.Pursuit);
-        }
-        else if (distance >= pursuitLimitRange)
-        {
-            ChangeState(MonsterState.Wander);
-        }*//*
-    }
-
-    public void ChangeState(MonsterState newState)
-    {
-        if (monsterState == newState)
-            return;
-
-        StopCoroutine(monsterState.ToString());
-
-        monsterState = newState;
-
-        StartCoroutine(monsterState.ToString());
-    }*/
 }
