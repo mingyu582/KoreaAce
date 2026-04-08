@@ -29,7 +29,11 @@ public class PlayerControllerV2 : MonoBehaviour
     public FloorCheck floorCheck;
 
     public bool isInteractPass = false;
-    public bool isDeadPlayer = false;   
+    public bool isDeadPlayer = false;
+
+    public GameObject gameOverPanel;
+
+    public Transform clearPosition;
 
     void Update()
     {
@@ -131,6 +135,20 @@ public class PlayerControllerV2 : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Clear"))
+        {
+            GameClear();
+        }
+    }
+
+    public void GameClear()
+    {
+        personController.enabled = false;
+        transform.position = clearPosition.position;
+    }
+
     public void GameOver()
     {
         isGameOver = true;
@@ -150,5 +168,11 @@ public class PlayerControllerV2 : MonoBehaviour
         personController.enabled = true;
 
         floorCheck.enabled = true;
+        gameOverPanel.SetActive(true);
+    }
+
+    public void SetFalseGameOverPanel()
+    {
+        gameOverPanel.SetActive(false);
     }
 }

@@ -16,7 +16,6 @@ public class GameSceneManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public void LoadScene(string sceneName)

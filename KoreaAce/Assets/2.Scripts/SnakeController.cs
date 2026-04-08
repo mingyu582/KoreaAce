@@ -139,15 +139,19 @@ public class SnakeController : MonoBehaviour
         }
 
         //이동중에 이동풀렷을떄 어디갈지 계산 (풀렸을시 가장 가까운 포인트로 이동)
-        float tableDis =0;
+        float tableDis =10f;
         for (int i = 0; i < points.Length; i++)
         {
             if (tableDis > Vector3.Distance(transform.position, points[i].position))
             {
                 tableDis = Vector3.Distance(transform.position, points[i].position);
                 currentIndex = i;
+
+                Debug.Log("현재인덱스 " + currentIndex);
             }
         }
 
+
+        moveTarget = points[currentIndex];
     }
 }

@@ -26,6 +26,7 @@ TagManager:
   - Snake
   - F1
   - Floor
+  - Clear
   layers:
   - Default
   - TransparentFX
