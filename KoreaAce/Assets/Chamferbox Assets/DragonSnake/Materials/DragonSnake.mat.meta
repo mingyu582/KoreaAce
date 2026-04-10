@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 348538190a755724185a4a42a1bb2296
+timeCreated: 1516822804
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 110027
+  packageName: Dragon Snake
+  packageVersion: 1.0
+  assetPath: Assets/Chamferbox Assets/DragonSnake/Materials/DragonSnake.mat
+  uploadId: 225779

@@ -10,13 +10,7 @@ public class SnakeController : MonoBehaviour
     public float moveSpeed;
     public float chaseSpeed;
 
-    public int Gap = 10;
-
-    public GameObject BodyPrefab;
-
-    private List<GameObject> BodyParts = new List<GameObject>();
-    private List<Vector3> PositionHistory = new List<Vector3>();
-
+    
     public Transform[] points;
     public Transform moveTarget;
 
@@ -29,14 +23,8 @@ public class SnakeController : MonoBehaviour
 
     private void Start()
     {
-        // 몸통 생성
-        for (int i = 0; i < 8; i++)
-            GrowSnake();
-
         currentIndex = 1;
         moveTarget = points[currentIndex];
-
-        PositionHistory.Add(transform.position);
     }
 
     private void Update()
@@ -45,31 +33,12 @@ public class SnakeController : MonoBehaviour
         {
             return;
         }
-        // 몸통 이동 (계단 그대로 따라가게)
-        // move forward
-        transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        
 
-        // steer
-        float steerDirection = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up * steerDirection * 3f * Time.deltaTime);
-
-        // store position history
-        PositionHistory.Insert(0, transform.position);
-
-        // move body parts
-        int index = 0;
-        foreach (var body in BodyParts)
-        {
-            Vector3 point = PositionHistory[Mathf.Min(index * Gap, PositionHistory.Count - 1)];
-            Vector3 moveDirection = point - body.transform.position;
-            body.transform.position += moveDirection * moveSpeed * Time.deltaTime;
-            body.transform.LookAt(point);
-            index++;
-        }
 
         // 추적 여부 판단
         float playerDistance = Vector3.Distance(player.position, transform.position);
-        isChase = playerDistance < 10f &&
+        isChase = playerDistance < 25f &&
                   player.GetComponent<FloorCheck>().floorTag == FloorTagSnake;
 
         if (isChase)
@@ -79,11 +48,12 @@ public class SnakeController : MonoBehaviour
 
     }
 
-    private void GrowSnake()
+    private void OnTriggerEnter(Collider other)
     {
-        GameObject body = Instantiate(BodyPrefab);
-        body.transform.position = transform.position;
-        BodyParts.Add(body);
+        if (other.gameObject.CompareTag("Player2"))
+        {
+            playerControllerV2.SnakeHit();
+        }
     }
 
     public void Wander()

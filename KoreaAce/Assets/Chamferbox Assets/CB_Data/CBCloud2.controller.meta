@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f734d74acfec83949a1bec66fbb6f4d8
+timeCreated: 1516456872
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 110027
+  packageName: Dragon Snake
+  packageVersion: 1.0
+  assetPath: Assets/Chamferbox Assets/CB_Data/CBCloud2.controller
+  uploadId: 225779

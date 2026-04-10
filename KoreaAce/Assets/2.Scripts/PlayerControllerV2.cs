@@ -123,16 +123,15 @@ public class PlayerControllerV2 : MonoBehaviour
         //GameOver();
     }
 
-    private void OnCollisionEnter(Collision collision)
+
+    public void SnakeHit()
     {
-        if (collision.gameObject.tag == "Snake")
-        {
-            isDeadPlayer = true;
-            personController.enabled = false;
-            floorCheck.enabled = false;
-            floorCheck.floorTag = "00";
-            GameOver();
-        }
+        Debug.Log("@@@@");
+        isDeadPlayer = true;
+        personController.enabled = false;
+        floorCheck.enabled = false;
+        floorCheck.floorTag = "00";
+        GameOver();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f4435b69dea8235478b2a16741c23527
+timeCreated: 1516456872
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 110027
+  packageName: Dragon Snake
+  packageVersion: 1.0
+  assetPath: Assets/Chamferbox Assets/CB_Data/CBTerrain.asset
+  uploadId: 225779

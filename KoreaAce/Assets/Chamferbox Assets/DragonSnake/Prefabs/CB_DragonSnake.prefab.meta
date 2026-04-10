@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0b3922b3208def64ea567524a79dfd24
+timeCreated: 1516823954
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 110027
+  packageName: Dragon Snake
+  packageVersion: 1.0
+  assetPath: Assets/Chamferbox Assets/DragonSnake/Prefabs/CB_DragonSnake.prefab
+  uploadId: 225779

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6f92bb5eeae92bf42b0a88409a0a8b3c
+timeCreated: 1516456853
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 110027
+  packageName: Dragon Snake
+  packageVersion: 1.0
+  assetPath: Assets/Chamferbox Assets/DragonSnake/DemoScene.unity
+  uploadId: 225779
