@@ -355,7 +355,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F16
+      value: F15
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -683,7 +683,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F41
+      value: F40
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -2182,7 +2182,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F42
+      value: F41
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -2664,7 +2664,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F44
+      value: F43
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -2851,7 +2851,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F21
+      value: F20
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -3719,7 +3719,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F20
+      value: F19
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -4007,7 +4007,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F27
+      value: F26
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -4187,7 +4187,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F30
+      value: F29
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -4367,7 +4367,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F9
+      value: F8
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -4547,7 +4547,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F46
+      value: F45
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -5330,7 +5330,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F25
+      value: F24
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -5544,7 +5544,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F24
+      value: F23
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -6149,7 +6149,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F23
+      value: F22
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -6564,7 +6564,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F10
+      value: F9
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -7099,7 +7099,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F38
+      value: F37
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -8086,7 +8086,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F18
+      value: F17
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -8386,7 +8386,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F47
+      value: F46
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -8713,7 +8713,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F34
+      value: F33
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -8937,7 +8937,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F14
+      value: F13
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -9266,7 +9266,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F35
+      value: F34
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -10933,7 +10933,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F45
+      value: F44
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -11774,7 +11774,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F49
+      value: F48
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -13228,7 +13228,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F13
+      value: F12
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -13976,7 +13976,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F48
+      value: F47
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -15256,7 +15256,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F26
+      value: F25
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -15662,7 +15662,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F31
+      value: F30
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -15938,7 +15938,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F43
+      value: F42
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -17615,7 +17615,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F11
+      value: F10
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -17879,7 +17879,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F39
+      value: F38
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -18319,7 +18319,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F12
+      value: F11
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -19434,7 +19434,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F32
+      value: F31
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -20076,7 +20076,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F40
+      value: F39
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -20359,7 +20359,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F19
+      value: F18
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -21827,7 +21827,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F36
+      value: F35
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -22381,7 +22381,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F33
+      value: F32
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -22706,7 +22706,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F50
+      value: F49
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -22903,7 +22903,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F22
+      value: F21
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -23350,7 +23350,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F28
+      value: F27
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -23878,7 +23878,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F17
+      value: F16
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -25038,7 +25038,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F29
+      value: F28
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -25247,7 +25247,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F15
+      value: F14
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -26474,7 +26474,7 @@ PrefabInstance:
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
       propertyPath: FloorTagSnake
-      value: F37
+      value: F36
       objectReference: {fileID: 0}
     - target: {fileID: 3412225064863031986, guid: 86ea25b9a16b22a4685cf198be2b567f,
         type: 3}
@@ -27779,7 +27779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -93.00012, y: 177}
+  m_AnchoredPosition: {x: -93, y: 177}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4244626406165427612
@@ -27936,6 +27936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901182334643ba1438a25accc6bd0c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: 453084651300153836}
 --- !u!114 &4681927493354458037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28838,7 +28839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &8873746844490297449
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28866,7 +28867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8967929479854142365
 MonoBehaviour:
   m_ObjectHideFlags: 0

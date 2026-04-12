@@ -123,7 +123,7 @@ namespace StarterAssets
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
 		}
 
-		/*private void CameraRotation()
+		private void CameraRotation()
 		{
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
@@ -145,8 +145,8 @@ namespace StarterAssets
 
 
 			}
-		}*/
-		private void CameraRotation()
+		}
+		/*private void CameraRotation()
 		{
 			Vector2 lookInput = Vector2.zero;
 			bool isMobile = Application.isMobilePlatform;
@@ -197,7 +197,7 @@ namespace StarterAssets
 
 				transform.Rotate(Vector3.up * _rotationVelocity);
 			}
-		}
+		}*/
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
