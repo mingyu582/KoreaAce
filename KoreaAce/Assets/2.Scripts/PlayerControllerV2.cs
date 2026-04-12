@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
 using StarterAssets;
+using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerControllerV2 : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class PlayerControllerV2 : MonoBehaviour
     public float minFallHeight = 3f;
     public float damageMultiplier = 5f;
 
-    public float maxAirTime = 5f; //  5초 지나면 즉사
+    public float maxAirTime = 2f; //  5초 지나면 즉사
 
     private float highestY;
     public bool isGrounded;
@@ -33,7 +35,12 @@ public class PlayerControllerV2 : MonoBehaviour
 
     public GameObject gameOverPanel;
 
-    public Transform clearPosition;
+    public GameObject lastSafe;
+    public Light directionalLight;
+    public Text clearText;
+    public GameObject clearPanel;
+    private bool isClear = false;
+    public GameObject menuBtn;
 
     void Update()
     {
@@ -58,7 +65,7 @@ public class PlayerControllerV2 : MonoBehaviour
         {
             // 착지 시 낙뎀 계산
 
-            if (airTime > 3f)
+            if (airTime > 2f)
             {
                 GameOver();
             }
@@ -140,16 +147,68 @@ public class PlayerControllerV2 : MonoBehaviour
         {
             GameClear();
         }
+        else if (other.gameObject.CompareTag("Safe"))
+        {
+            floorCheck.floorTag = "Safe";
+        }
     }
 
     public void GameClear()
     {
+        isClear = true;
         personController.enabled = false;
-        transform.position = clearPosition.position;
+        lastSafe.SetActive(false);
+        clearPanel.SetActive(true);
+        transform.position = spawnPoint.position;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+        StartCoroutine(sunRise());
+        Invoke("GameClear2", 4f);
+    }
+
+    IEnumerator sunRise()
+    {
+        float time = 0f;
+
+        while (time < 3f)
+        {
+            time += Time.deltaTime;
+
+            float t = time / 3f;
+            directionalLight.intensity = Mathf.Lerp(1f, 50f, t);
+
+            yield return null;
+        }
+
+        // 정확한 값 보정
+        directionalLight.intensity = 50f;
+
+        directionalLight.color = new Color32(205, 60, 21, 255);
+    }
+
+    public void GameClear2()
+    {
+        clearText.text = "당신은 200층 타워를 무사히 탈출했다.";
+        Invoke("GameClear3", 2f);
+    }
+
+    public void GameClear3()
+    {
+        clearText.text = "하어덕 성에서의 악몽은 이제 끝났다...";
+        Invoke("BtnSet", 4f);
+    }
+
+    public void BtnSet()
+    {
+        menuBtn.SetActive(true);
     }
 
     public void GameOver()
     {
+        if (isClear)
+        {
+            return;
+        }
         isGameOver = true;
         blink.StartBlink();
         Invoke("Respone", 2f);

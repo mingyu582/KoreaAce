@@ -18,6 +18,4 @@ public class LockManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }

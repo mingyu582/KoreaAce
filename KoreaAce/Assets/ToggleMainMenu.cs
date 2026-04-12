@@ -16,12 +16,16 @@ public class ToggleMainMenu : MonoBehaviour
 
     void Start()
     {
+
+
+
+
         Chapter1.onValueChanged.AddListener(OnChapter1);
         Chapter2.onValueChanged.AddListener(OnChapter2);
         PlayBtn.onClick.AddListener(OnPlay);
         LoadingPanel.SetActive(false);
         //
-        if (LockManager.isLock) //잠겨있으면
+        if (PlayerPrefs.GetInt("clear",0) == 0) //잠겨있으면
         {
             Color newCol = new Color(1, 1, 1, .5f);
             Chapter2Img.color = newCol;

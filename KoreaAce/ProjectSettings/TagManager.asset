@@ -27,6 +27,7 @@ TagManager:
   - F1
   - Floor
   - Clear
+  - Safe
   layers:
   - Default
   - TransparentFX

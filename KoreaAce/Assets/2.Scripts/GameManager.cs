@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
     public void ClearInvoke()
     {
         LockManager.isLock = false;
+
+        PlayerPrefs.SetInt("clear", 100);
         clearPanel.SetActive(true);
         cleaerAnim.SetBool("isClear", true);
         moveController.enabled = false;

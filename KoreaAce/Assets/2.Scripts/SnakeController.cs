@@ -21,6 +21,13 @@ public class SnakeController : MonoBehaviour
 
     public PlayerControllerV2 playerControllerV2;
 
+    public Rigidbody rb;
+
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     private void Start()
     {
         currentIndex = 1;
@@ -61,21 +68,27 @@ public class SnakeController : MonoBehaviour
         Vector3 dir = (moveTarget.position - transform.position).normalized;
 
         // 이동
-        transform.position = Vector3.MoveTowards(
+
+        rb.MovePosition(Vector3.MoveTowards(rb.position, moveTarget.position, moveSpeed * Time.deltaTime));
+        /*transform.position = Vector3.MoveTowards(
             transform.position,
             moveTarget.position,
             moveSpeed * Time.deltaTime
-        );
+        );*/
 
         // 이동 방향으로 회전
         if (dir != Vector3.zero)
         {
+
             Quaternion rot = Quaternion.LookRotation(dir);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rot, 10f * Time.deltaTime);
+
+            rb.MoveRotation(rot);
+            /*Quaternion rot = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, 10f * Time.deltaTime);*/
         }
 
         // 도착 시 다음 포인트 선택
-        if (Vector3.Distance(transform.position, moveTarget.position) < 0.2f)
+        if (Vector3.Distance(transform.position, moveTarget.position) < 1f)
         {
             List<int> possible = new List<int>();
 
@@ -94,18 +107,24 @@ public class SnakeController : MonoBehaviour
     {
         Vector3 dir = (player.position - transform.position).normalized;
 
-        // 이동
+        /*// 이동
         transform.position = Vector3.MoveTowards(
             transform.position,
             player.position,
             chaseSpeed * Time.deltaTime
-        );
+        );*/
+
+        rb.MovePosition(Vector3.MoveTowards(rb.position,player.position,chaseSpeed * Time.deltaTime));
 
         // 플레이어 방향으로 회전
         if (dir != Vector3.zero)
         {
             Quaternion rot = Quaternion.LookRotation(dir);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rot, 10f * Time.deltaTime);
+
+            rb.MoveRotation(rot);
+            /*
+            Quaternion rot = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, 10f * Time.deltaTime);*/
         }
 
         //이동중에 이동풀렷을떄 어디갈지 계산 (풀렸을시 가장 가까운 포인트로 이동)

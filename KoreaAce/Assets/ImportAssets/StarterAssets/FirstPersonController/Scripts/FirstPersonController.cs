@@ -123,7 +123,7 @@ namespace StarterAssets
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
 		}
 
-		private void CameraRotation()
+		/*private void CameraRotation()
 		{
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
@@ -145,8 +145,8 @@ namespace StarterAssets
 
 
 			}
-		}
-		/*private void CameraRotation()
+		}*/
+		private void CameraRotation()
 		{
 			Vector2 lookInput = Vector2.zero;
 			bool isMobile = Application.isMobilePlatform;
@@ -159,9 +159,6 @@ namespace StarterAssets
 					{
 						int fingerId = touch.touchId.ReadValue();
 
-						// 🔥 UI 위 터치 무시
-						if (EventSystem.current.IsPointerOverGameObject(fingerId))
-							continue;
 
 						Vector2 pos = touch.position.ReadValue();
 
@@ -185,7 +182,7 @@ namespace StarterAssets
 			{
 				float deltaTimeMultiplier = isMobile ? Time.deltaTime : 1.0f;
 
-				// 🔥 X축 좌/우 감도는 3배, Y축 위/아래 감도는 3 * 0.7 = 2.1배
+				//  X축 좌/우 감도는 3배, Y축 위/아래 감도는 3 * 0.7 = 2.1배
 				float horizontalSensitivity = RotationSpeed * 6f;
 				float verticalSensitivity = RotationSpeed * 3f * 0.7f;
 
@@ -200,7 +197,7 @@ namespace StarterAssets
 
 				transform.Rotate(Vector3.up * _rotationVelocity);
 			}
-		}*/
+		}
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
